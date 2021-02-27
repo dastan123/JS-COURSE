@@ -150,6 +150,4 @@
 
 console.log(personalMovieDB.count, personalMovieDB.movies.filmsname, personalMovieDB.movies.rating,  whatisFilms[0]);
 
-*/
-hello
-hello world hwoalksjdkfas
+
