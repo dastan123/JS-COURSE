@@ -44,38 +44,47 @@
 // console.log(personalMovieDB.movies);
 
 
- const numberOfCars = +prompt('How many cars do you hove', '');
+ const numberOfCars = +prompt('How many cars do you have', '');
   
  const personalCarDB = {
        carcount: numberOfCars,
-       cars: {numberOfCars,},
+       cars: {} ,
        mark: [],
        cost: {},
  };
 
- const a = prompt('The last car that you ride', '');
+ let   a = prompt('The last car that you ride', '');
        b = prompt('Describe your emotions', '');
-       c = prompt('The last car that you ride', '');
-       d = prompt('Describe your emotions', '');
+       
 
-personalCarDB.mark [a] = b;
-personalCarDB.mark [c] = d;
 
 console.log(personalCarDB);
 
-// if (personalCarDB.carcount < 10) {
-//       console.log('You have seen a few movies');
-// } else if (personalCarDB.carcount > 15){
-//       console.log('you Have seen a lot of cars');
-// } else {
-//       console.log('i didnt ');
-// }
-for (let i = 0; i < 2; i++) {
-      const a = prompt('The last car that you ride', '');
+ if (personalCarDB.carcount < 10) {
+       console.log('You have classical amount of cars');
+ } else if (personalCarDB.carcount > 30){
+       console.log('You are obsesed with cars');
+ } else {
+       console.log('Error');
+ }
+for (let i = 0; i < 1; i++) {
+      let a = prompt('The last car that you ride', '');
             b = prompt('Describe your emotions', '');
+<<<<<<< HEAD
       personalCarDB.mark [a] = b;
 }
 Hello
 };
 
 console.log('hello')
+=======
+      if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+            personalCarDB.cars [a] = b;
+            console.log('done');
+      }   else {
+            console.log('error');
+            i--;
+      }
+
+}   
+>>>>>>> 70ba3d1bf7225171c2d20abbd4ea610af30b725c
