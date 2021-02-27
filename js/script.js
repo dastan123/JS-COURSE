@@ -123,31 +123,59 @@
 // ++incr;
 // console.log(incr);
 
+// if (4 == 4) {
+//       console.log('ok!');
+// } else {
+//       console.log('error');
+// }
 
+// const num = 50;
 
-/* my project
- const numberOfFilms = [];
+// if (num < 49) {
+//       console.log('Error');
+// } else if(num > 100) {
+//      console.log('toomuch');
+// } else {
+//       console.log('ok!');
+// }
 
- numberOfFilms[0] = prompt('Сколько фильмов вы посморели?', '');
+// const num = 50;
 
- let whatisFilms = [];
+// (num === 50) ? console.log('ok') : console.log('not right');
 
- whatisFilms[0] = prompt('Один из последних просмотренных фильмов', '');
- whatisFilms[1] = prompt('На сколько оцените его?', '');
- whatisFilms[2] = prompt('Один из последних просмотренных фильмов', '');
- whatisFilms[3] = prompt('На сколько оцените его?', '');
+// const num = '50';
 
- const personalMovieDB = {
-     count: numberOfFilms[0],
-     movies: {
-            filmsname: whatisFilms[0],
-            rating: whatisFilms[1]
-             },
-     actors: {},
-     genres: [],
-     privat: false
-};
+// switch (num) {
+//       case 49: 
+//             console.log('NO');
+//             break;
+//       case 100:
+//             console.log('NOOOO');
+//             break;
+//       case '50': 
+//       console.log('Yes');
+//       break;
+//       default:
+//             console.log('something is not right');
+//             break;
+// 
 
-console.log(personalMovieDB.count, personalMovieDB.movies.filmsname, personalMovieDB.movies.rating,  whatisFilms[0]);
+let num = 50;
 
+// while (num <= 55) {
+//       console.log(num);
+//       num++;
+// }
 
+// do {
+//       console.log(num);
+//       num++;
+// }
+// while (num <= 55);
+
+for (let i = 1; i < 5; i++) {
+      if (i === 3) {
+            continue;
+      }
+      console.log(i);
+} 
