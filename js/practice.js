@@ -70,21 +70,7 @@ console.log(personalCarDB);
 for (let i = 0; i < 1; i++) {
       let a = prompt('The last car that you ride', '');
             b = prompt('Describe your emotions', '');
-<<<<<<< HEAD
       personalCarDB.mark [a] = b;
+
 }
-Hello
-};
 
-console.log('hello')
-=======
-      if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-            personalCarDB.cars [a] = b;
-            console.log('done');
-      }   else {
-            console.log('error');
-            i--;
-      }
-
-}   
->>>>>>> 70ba3d1bf7225171c2d20abbd4ea610af30b725c
