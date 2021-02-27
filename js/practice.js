@@ -76,3 +76,6 @@ for (let i = 0; i < 2; i++) {
       personalCarDB.mark [a] = b;
 }
 Hello
+};
+
+console.log('hello')
