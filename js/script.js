@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
  /* global alert */
 // var, let, const
 // Strings, Numbers, Boolean, null, undefined, Symbol
@@ -160,25 +160,6 @@
 //             break;
 // 
 
-// let num = 50;
-
-// // while (num <= 55) {
-// //       console.log(num);
-// //       num++;
-// // }
-
-// // do {
-// //       console.log(num);
-// //       num++;
-// // }
-// // while (num <= 55);
-
-// for (let i = 1; i < 5; i++) {
-//       if (i === 3) {
-//             continue;
-//       }
-//       console.log(i);
-// } 
 
 
 // let num = 20;
@@ -221,22 +202,7 @@
 
 // calc();
 
-// var x = 0;
-// var z = 0;
-// labelCancelLoops: while (true) {
-//   console.log("Внешний цикл: " + x);
-//   x += 1;
-//   z = 1;
-//   while (true) {
-//     console.log("Внутренний цикл: " + z);
-//     z += 1;
-//     if (z === 10 && x === 10) {
-//       break labelCancelLoops;
-//     } else if (z === 10) {
-//       break;
-//     }
-//   }
-// }
+
 //  const str = 'test';
 //  const arr = [1, 2, 4];
 
@@ -311,24 +277,275 @@
 //             console.log(`Properties ${key} has value ${options[key]}`);
 //       }
 // }
-const cars = {
-      name: 'car',
-      mark: 'lambo',
-      machine: 'gt4',
-      price: 100,
-      color: {
-            border: "white",
-            bg: 'blue'
-      },
-      makeCar: function() {
-            console.log("Making-car");
-      }
-};
-cars.makeCar();
 
-const {border, bg} = cars.color;
-console.log(border, bg);
+// let num = 50;
+
+// // while (num <= 55) {
+// //       console.log(num);
+// //       num++;
+// // }
+
+// // do {
+// //       console.log(num);
+// //       num++;
+// // }
+// // while (num <= 55);
+
+// for (let i = 1; i < 5; i++) {
+//       if (i === 3) {
+//             continue;
+//       }
+//       console.log(i);
+// } 
+// var x = 0;
+// var z = 0;
+// labelCancelLoops: while (true) {
+//   console.log("Внешний цикл: " + x);
+//   x += 1;
+//   z = 1;
+//   while (true) {
+//     console.log("Внутренний цикл: " + z);
+//     z += 1;
+//     if (z === 10 && x === 10) {
+//       break labelCancelLoops;
+//     } else if (z === 10) {
+//       break;
+//     }
+//   }
+// }
+// const options = {
+//       name: 'test',
+//       width: 1024,
+//       height: 1024,
+//       colors: {
+//             border: 'black',
+//             bg: 'red'
+//       }
+// };
+
+// console.log(Object.keys(options).length);
+// // console.log(options["colors"]["border"]);
+
+// // delete options.name;
+
+// // console.log(options);
+
+// for (let key in options) {
+//       if (typeof(options[key] === 'object')) {
+//             for (let i in options[key]) {
+//                   console.log(`Properties ${i} has value ${options[key][i]}`);
+//             }
+//       } else {
+//             console.log(`Properties ${key} has value ${options[key]}`);
+//       }
+// }
+
+// let whatCars;
+
+
+// function start(whatCars) {
+//       for (let i = 0; i < 1; i++) {
+//             whatCars = +prompt('how many cars', '');
+//       } while (whatCars == '' || whatCars == null || whatCars > 50) {
+//             whatCars = +prompt('how many cars', '');
+//       }
+// }
+// start();
+
+
+// let obj = {
+//       sayName: function() {
+//             let num = 20 ;
+//             console.log('hi my name is function');
+//             if (num == 20) {
+//                   console.log('fine');
+//             } else {
+//                   console.log('bad');
+//             }
+//             return(num);
+
+//       },
+      
+// };
+
+//  obj.sayName();
+//  for (let key in obj) {
+//  if (typeof(obj[key] === 'object')) {
+//              console.log('fail');
+//        } if (obj > 5) {
+//           console.log('interesting');
+//        }
+//  }
+
+
+
 // console.log(Object.keys(cars).length);
 // for (let key in cars) {
 //       console.log(`Properties of my car is ${key} has machine ${cars[key]}`);
 // }
+
+// const arr = [1, 2, 3, 4, 5, 7];
+
+// // arr.push(10);
+// // console.log(arr);
+
+// // for (let i = 5; i < arr.length; i++) {
+// //       console.log(arr[i]);
+// // }
+
+// for(let value of arr) {
+//       console.log(value);
+// }
+
+// const cars = {
+//       name: 'lambo',
+//       familia: 'gini',
+//       rost: 5.1,        
+// };
+// for (let key in cars) {
+//       if (typeof(cars[key] === 'object'))
+//       console.log(`the name of this car is ${key} and the value is ${cars[key]}`);
+// }
+
+// const arr = [1, 2, 3, 4, 5, 7];
+
+// // arr.push(10);
+// // console.log(arr);
+
+// // for (let i = 5; i < arr.length; i++) {
+// //       console.log(arr[i]);
+// // }
+
+// for(let value of arr) {
+//       console.log(value);
+// }
+
+//  const arr = [1, 2, 343, 24, 55, 7];
+// arr.sort(compareNum);
+
+// function compareNum(a, b) {
+//       return a - b;
+// }
+//  arr[99] = 0;
+// console.log(arr.length);
+
+// console.log(arr);
+
+// arr.forEach(function(numbers, i, arr) {
+//             console.log(`${i}: ${numbers} внутри массива ${arr}`);
+//       });
+
+// const str = prompt('', '');
+// const products = str.split(', ');
+// // console.log(products);
+// products.sort();
+// console.log(products.join('-'));
+
+// const arr = [1, 2, 4, 5]
+// arr.forEach(function( number, ){
+//            console.log
+//            console.log(`index number ${number} array}`);
+// });
+
+
+// let a = 15,
+//     b = a;
+
+//     b = b + 5;
+// console.log(b);
+// console.log(a);
+
+// const obj = {
+//       a: 5,
+//       b: 1
+// };
+
+// const copy = obj; //Link
+
+// copy.a = 10;
+
+// console.log(copy);
+// console.log(obj);
+
+function copy(mainObj) {
+      let objCopy = {};
+
+      let key;
+      for(key in mainObj ) {
+            objCopy[key] = mainObj[key];
+      }
+
+      return objCopy;
+} 
+const numbers = {
+      a: 2,
+      b: 5,
+      c: {
+            x: 7,
+            y: 4
+      }
+};
+const newNumbers = copy();
+
+// newNumbers.a = 10;
+// newNumbers.c.x = 10;
+// console.log(newNumbers);
+// console.log(numbers);
+
+// const add = {
+//       d: 17,
+//       e: 20
+// };
+
+// const clone = Object.assign({}, add);
+
+// clone.d = 20;
+  
+// console.log(add);
+// console.log(clone);
+
+const helo = Object.assign({}, numbers);
+
+helo.a = 20;
+console.log(helo);
+console.log(numbers);
+
+const oldArray = ['a', 'b', 'c'];
+const newArray = oldArray.slice();//link
+newArray[1] = 'Hello';
+console.log(newArray);
+console.log(oldArray);
+
+
+
+function log(a, b) {
+      console.log(a);
+      console.log(b);
+} 
+
+const num = [2, 5, 7];
+
+
+
+ const video = ['youtube', 'vimeo', 'rutube'],
+      blogs = ['wordpress', 'livejournal', 'blogger'],
+      internet = [...video, ...blogs, 'vk', 'facebook'];
+
+log(...video);
+
+console.log(internet);
+
+const arraybi = ["a", "b", "hello"];
+const operator = [...arraybi];
+
+console.log(operator);
+
+const q = {
+      one: 1,
+      two: 2
+};
+
+const newObject = {...q};
+
+console.log(newObject);
+

@@ -1,3 +1,4 @@
+'use strict';
 // my project
 //  const numberOfFilms = [];
 
@@ -105,3 +106,4 @@ function showMyDB (hidden) {
      }
 }
 showMyDB(personalCarDB.pri);
+
