@@ -160,22 +160,175 @@
 //             break;
 // 
 
-let num = 50;
+// let num = 50;
 
-// while (num <= 55) {
+// // while (num <= 55) {
+// //       console.log(num);
+// //       num++;
+// // }
+
+// // do {
+// //       console.log(num);
+// //       num++;
+// // }
+// // while (num <= 55);
+
+// for (let i = 1; i < 5; i++) {
+//       if (i === 3) {
+//             continue;
+//       }
+//       console.log(i);
+// } 
+
+
+// let num = 20;
+
+// function showFirstMessage(text) {
+//       console.log(text);
+//       let num = 210;
 //       console.log(num);
-//       num++;
 // }
 
-// do {
-//       console.log(num);
-//       num++;
-// }
-// while (num <= 55);
+// showFirstMessage('Hello World');
+// console.log(num);
 
-for (let i = 1; i < 5; i++) {
-      if (i === 3) {
-            continue;
+// function calc(a, b) {
+//       return (a + b);
+// }
+
+// console.log(calc(4, 3));
+// console.log(calc(5, 6));
+// console.log(calc(10, 6));
+
+// function ret() {
+//       let num = 50;
+//       return num;
+// }
+
+// const anotherNum = ret();
+// console.log(anotherNum);
+
+// const foo = function() {
+//      console.log("Hello");
+// };
+
+// foo();
+
+// const calc = (a, b) => {
+//       console.log('1');
+//       return(a + b);
+// } ;
+
+// calc();
+
+// var x = 0;
+// var z = 0;
+// labelCancelLoops: while (true) {
+//   console.log("Внешний цикл: " + x);
+//   x += 1;
+//   z = 1;
+//   while (true) {
+//     console.log("Внутренний цикл: " + z);
+//     z += 1;
+//     if (z === 10 && x === 10) {
+//       break labelCancelLoops;
+//     } else if (z === 10) {
+//       break;
+//     }
+//   }
+// }
+//  const str = 'test';
+//  const arr = [1, 2, 4];
+
+//  console.log(str.toUpperCase());
+//  console.log(str.toLowerCase());
+
+//  const fruit = "Hello Some fruit";
+
+//  console.log(fruit.indexOf("fruit"));
+
+// const logg = 'Hello World adsfasfasdf';
+
+// console.log(logg.substr(6));
+
+// console.log(logg.substring(19, 6));
+
+// const num = 12.2;
+// console.log(Math.round(num));
+
+// const test = '12.2px';
+// // console.log(parseInt(test));
+// console.log(parseFloat(test));
+
+// function first() {
+//       // Do something 
+//       setTimeout(function() {
+//             console.log(1);
+//       }, 500);
+// }
+
+// function second() {
+//       console.log(2);
+// }
+
+// first();
+// second();
+
+// function learnJS(lang, callback) {
+//       console.log(`Я учу ${lang}`);
+//       callback();
+// }
+
+// function done() {
+//       console.log('Я прошел этот урок!');
+// }
+
+// learnJS('JavaScript', done);
+
+// const options = {
+//       name: 'test',
+//       width: 1024,
+//       height: 1024,
+//       colors: {
+//             border: 'black',
+//             bg: 'red'
+//       }
+// };
+
+// console.log(Object.keys(options).length);
+// // console.log(options["colors"]["border"]);
+
+// // delete options.name;
+
+// // console.log(options);
+
+// for (let key in options) {
+//       if (typeof(options[key] === 'object')) {
+//             for (let i in options[key]) {
+//                   console.log(`Properties ${i} has value ${options[key][i]}`);
+//             }
+//       } else {
+//             console.log(`Properties ${key} has value ${options[key]}`);
+//       }
+// }
+const cars = {
+      name: 'car',
+      mark: 'lambo',
+      machine: 'gt4',
+      price: 100,
+      color: {
+            border: "white",
+            bg: 'blue'
+      },
+      makeCar: function() {
+            console.log("Making-car");
       }
-      console.log(i);
-} 
+};
+cars.makeCar();
+
+const {border, bg} = cars.color;
+console.log(border, bg);
+// console.log(Object.keys(cars).length);
+// for (let key in cars) {
+//       console.log(`Properties of my car is ${key} has machine ${cars[key]}`);
+// }

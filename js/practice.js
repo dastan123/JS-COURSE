@@ -44,33 +44,64 @@
 // console.log(personalMovieDB.movies);
 
 
- const numberOfCars = +prompt('How many cars do you have', '');
+ let numberOfCars;
   
+function start() {
+      numberOfCars = +prompt('How many cars do you have', '');
+
+      while (numberOfCars == '' || numberOfCars == null || isNaN(numberOfCars)) {
+            numberOfCars = +prompt('How many cars do you have', '');
+      }
+}
+
+ start();
+
  const personalCarDB = {
        carcount: numberOfCars,
        cars: {} ,
        mark: [],
        cost: {},
+       privat: true
  };
 
- let   a = prompt('The last car that you ride', '');
-       b = prompt('Describe your emotions', '');
-       
 
 
-console.log(personalCarDB);
 
- if (personalCarDB.carcount < 10) {
-       console.log('You have classical amount of cars');
- } else if (personalCarDB.carcount > 30){
-       console.log('You are obsesed with cars');
- } else {
-       console.log('Error');
- }
-for (let i = 0; i < 1; i++) {
-      let a = prompt('The last car that you ride', '');
-            b = prompt('Describe your emotions', '');
-      personalCarDB.mark [a] = b;
+// console.log(personalCarDB);
 
+
+function rememberMyFilms() {
+      if (personalCarDB.carcount < 10) {
+            console.log('You have classical amount of cars');
+      } else if (personalCarDB.carcount > 30){
+            console.log('You are obsesed with cars');
+      } else {
+            console.log('Errornot');
+            i--;
+      }
+     for (let i = 0; i < 1; i++) {
+           let a = prompt('The last car that you ride', '');
+                 b = prompt('Describe your emotions', '');
+           personalCarDB.mark [a] = b;
+     }
 }
 
+// rememberMyFilms();
+
+
+function detectPersonalLevel() {
+      if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+            personalCarDB.cars [a] = b;
+            console.log('done');
+      }   else {
+            console.log('error');
+            i--;
+      } 
+}
+// detectPersonalLevel()
+function showMyDB (hidden) {
+     if (!hidden) {
+        console.log(personalCarDB);
+     }
+}
+showMyDB(personalCarDB.pri);
