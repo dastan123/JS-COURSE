@@ -407,7 +407,7 @@
 //       console.log(`the name of this car is ${key} and the value is ${cars[key]}`);
 // }
 
-// const arr = [1, 2, 3, 4, 5, 7];
+const arr = [1, 'hrllodfg', 3, 4, 5, 7];
 
 // // arr.push(10);
 // // console.log(arr);
@@ -431,9 +431,9 @@
 
 // console.log(arr);
 
-// arr.forEach(function(numbers, i, arr) {
-//             console.log(`${i}: ${numbers} внутри массива ${arr}`);
-//       });
+ arr.forEach(function(numbers, i, arr) {
+           console.log(`${i}: ${numbers} внутри массива ${arr[2]}`);
+       });
 
 // const str = prompt('', '');
 // const products = str.split(', ');
@@ -467,85 +467,124 @@
 // console.log(copy);
 // console.log(obj);
 
-function copy(mainObj) {
-      let objCopy = {};
+// function copy(mainObj) {
+//       let objCopy = {};
 
-      let key;
-      for(key in mainObj ) {
-            objCopy[key] = mainObj[key];
-      }
+//       let key;
+//       for(key in mainObj ) {
+//             objCopy[key] = mainObj[key];
+//       }
 
-      return objCopy;
-} 
-const numbers = {
-      a: 2,
-      b: 5,
-      c: {
-            x: 7,
-            y: 4
-      }
-};
-const newNumbers = copy();
+//       return objCopy;
+// } 
+// const numbers = {
+//       a: 2,
+//       b: 5,
+//       c: {
+//             x: 7,
+//             y: 4
+//       }
+// };
+// const newNumbers = copy();
 
-// newNumbers.a = 10;
-// newNumbers.c.x = 10;
-// console.log(newNumbers);
+// // newNumbers.a = 10;
+// // newNumbers.c.x = 10;
+// // console.log(newNumbers);
+// // console.log(numbers);
+
+// // const add = {
+// //       d: 17,
+// //       e: 20
+// // };
+
+// // const clone = Object.assign({}, add);
+
+// // clone.d = 20;
+  
+// // console.log(add);
+// // console.log(clone);
+
+// const helo = Object.assign({}, numbers);
+
+// helo.a = 20;
+// console.log(helo);
 // console.log(numbers);
 
-// const add = {
-//       d: 17,
-//       e: 20
+// const oldArray = ['a', 'b', 'c'];
+// const newArray = oldArray.slice();//link
+// newArray[1] = 'Hello';
+// console.log(newArray);
+// console.log(oldArray);
+
+
+
+// function log(a, b) {
+//       console.log(a);
+//       console.log(b);
+// } 
+
+// const num = [2, 5, 7];
+
+
+
+//  const video = ['youtube', 'vimeo', 'rutube'],
+//       blogs = ['wordpress', 'livejournal', 'blogger'],
+//       internet = [...video, ...blogs, 'vk', 'facebook'];
+
+// console.log(internet);
+
+//  const arraybi = ["a", "b", "hello"];
+//  const operator = [...arraybi];
+
+//  console.log(operator);
+
+// const q = {
+//       one: 1,
+//       two: 2
 // };
 
-// const clone = Object.assign({}, add);
+// const newObject = {...q};
 
-// clone.d = 20;
-  
-// console.log(add);
-// console.log(clone);
-
-const helo = Object.assign({}, numbers);
-
-helo.a = 20;
-console.log(helo);
-console.log(numbers);
-
-const oldArray = ['a', 'b', 'c'];
-const newArray = oldArray.slice();//link
-newArray[1] = 'Hello';
-console.log(newArray);
-console.log(oldArray);
+// console.log(newObject);
 
 
+// let str = "some";
+// let strObj = new String(str);
 
-function log(a, b) {
-      console.log(a);
-      console.log(b);
-} 
+// console.log(typeof(str));
+// console.log(typeof(strObj));
 
-const num = [2, 5, 7];
+// console.dir([1, 2, 3]);
+
+// let soldier = {
+//       health: 400,
+//       armor: 100,
+//       speed: 50,
+//       sayHello: function() {
+//             console.log('This works');
+//             let num = 15;
+//             return num;
+//       }
+// };
+
+// let jonh = {
+//       ...soldier,
+//       age: 15
+// };
 
 
 
- const video = ['youtube', 'vimeo', 'rutube'],
-      blogs = ['wordpress', 'livejournal', 'blogger'],
-      internet = [...video, ...blogs, 'vk', 'facebook'];
 
-log(...video);
 
-console.log(internet);
 
-const arraybi = ["a", "b", "hello"];
-const operator = [...arraybi];
 
-console.log(operator);
 
-const q = {
-      one: 1,
-      two: 2
-};
+// jonh.__proto__ = soldier;
 
-const newObject = {...q};
+// Object.setPrototypeOf(jonh, soldier);
 
-console.log(newObject);
+// jonh.sayHello(15);
 
+// console.log(jonh.armor);
+
+console.log(typeof(String(null)));
