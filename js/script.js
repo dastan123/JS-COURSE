@@ -1,4 +1,6 @@
 'use strict';
+/* jshint node: true */
+/* jshint browser: true */
  /* global alert */
 // var, let, const
 // Strings, Numbers, Boolean, null, undefined, Symbol
@@ -143,7 +145,7 @@
 
 // (num === 50) ? console.log('ok') : console.log('not right');
 
-// const num = '50';
+// const num = 150;
 
 // switch (num) {
 //       case 49: 
@@ -158,7 +160,7 @@
 //       default:
 //             console.log('something is not right');
 //             break;
-// 
+// }
 
 
 
@@ -215,15 +217,15 @@
 
 // const logg = 'Hello World adsfasfasdf';
 
-// console.log(logg.substr(6));
+// console.log(logg.substr(12));
 
-// console.log(logg.substring(19, 6));
+// console.log(logg.substring(19, 4));
 
-// const num = 12.2;
+// const num = '12.4';
 // console.log(Math.round(num));
 
-// const test = '12.2px';
-// // console.log(parseInt(test));
+// const test = '12px';
+// console.log(parseInt(test));
 // console.log(parseFloat(test));
 
 // function first() {
@@ -241,7 +243,9 @@
 // second();
 
 // function learnJS(lang, callback) {
-//       console.log(`Я учу ${lang}`);
+//              setTimeout(function() {
+//              console.log(`i learn ${lang}`);
+//        }, 500);
 //       callback();
 // }
 
@@ -249,7 +253,7 @@
 //       console.log('Я прошел этот урок!');
 // }
 
-// learnJS('JavaScript', done);
+// learnJS('JavaScript', done;)
 
 // const options = {
 //       name: 'test',
@@ -262,22 +266,42 @@
 // };
 
 // console.log(Object.keys(options).length);
-// // console.log(options["colors"]["border"]);
+// console.log(options["colors"]["bg"]);
 
-// // delete options.name;
+// delete options.name;
 
-// // console.log(options);
+// console.log(options);
 
 // for (let key in options) {
 //       if (typeof(options[key] === 'object')) {
 //             for (let i in options[key]) {
-//                   console.log(`Properties ${i} has value ${options[key][i]}`);
+//                   console.log(`Properties ${i} has value ${options[key]}`);
 //             }
 //       } else {
 //             console.log(`Properties ${key} has value ${options[key]}`);
 //       }
 // }
 
+// const soldier = {
+//       name: 'Jonatan',
+//       secondname: 'lo',
+//       muscles: 'good',
+//       birthday: '2 september',
+//       age: {
+//             hello: 'hi',
+//             priver: 'prive'
+//       }
+// }
+
+// for (let key in soldier) {
+//       if (typeof(soldier[key]) === 'object') 
+//       for(let i in soldier[key]){
+//             console.log(`Personal information ${i}: has value ${soldier[key}`);
+//         } else {
+//             console.log(`Personal information ${key} has value ${soldier[key]}`);
+//       }
+//       }
+      
 // let num = 50;
 
 // // while (num <= 55) {
@@ -407,7 +431,7 @@
 //       console.log(`the name of this car is ${key} and the value is ${cars[key]}`);
 // }
 
-const arr = [1, 'hrllodfg', 3, 4, 5, 7];
+// const arr = [1, 'hrllodfg', 3, 4, 5, 7];
 
 // // arr.push(10);
 // // console.log(arr);
@@ -431,9 +455,9 @@ const arr = [1, 'hrllodfg', 3, 4, 5, 7];
 
 // console.log(arr);
 
- arr.forEach(function(numbers, i, arr) {
-           console.log(`${i}: ${numbers} внутри массива ${arr[2]}`);
-       });
+//  arr.forEach(function(numbers, i, arr) {
+//            console.log(`${i}: ${numbers} внутри массива ${arr[2]}`);
+//        });
 
 // const str = prompt('', '');
 // const products = str.split(', ');
@@ -561,7 +585,7 @@ const arr = [1, 'hrllodfg', 3, 4, 5, 7];
 //       armor: 100,
 //       speed: 50,
 //       sayHello: function() {
-//             console.log('This works');
+//             console.log('This work');
 //             let num = 15;
 //             return num;
 //       }
@@ -572,19 +596,120 @@ const arr = [1, 'hrllodfg', 3, 4, 5, 7];
 //       age: 15
 // };
 
+// //  jonh.__proto__ = soldier;
+
+// //  Object.setPrototypeOf(jonh, soldier);
+
+//  jonh.sayHello();
+
+//  soldier.sayHello(15);
+//  console.log(jonh.armor);
+
+//  console.log(typeof(String(43)));
+//  console.log(typeof(String(null)));
+
+//  // 2
+//  console.log(typeof(5 + ''));
+
+//  const num = 5;
+
+//  console.log("https://vk.com/catalog/" + num);
+
+//  let  fontSize = 'askjfkjsadlfdsaf';
+
+//    To number
+
+//    1)
+//  console.log(typeof(Number('4')));
+
+//  console.log(typeof(+'5'));
+
+//  console.log(typeof(+fontSize));
 
 
+// let answer = +prompt("hello", '');
+
+// // To boolean
+
+// // 0, '', null, undefined, NaN; - False - not working
+// // 1 to boolean
+// let switcher = null 
+
+// if (switcher == null) {
+//       console.log('working');
+// }
+
+// // 2
+// console.log(typeof(Boolean('4')));
+
+// // 3 
+// console.log(typeof(!!"44444"));
+
+// let hello = null;
+
+// hello = 1;
+
+// if (hello == true) {
+//       console.log('king')
+// }
+// // while (num <= 55) {
+// //       console.log(num);
+// //       num++;
+// // }
+
+// // do {
+// //       console.log(num);
+// //       num++;
+// // }
+// // while (num <= 55);
 
 
+const box = document.getElementById('box');
+
+console.log(box);
+
+// const arr = [1, 2, 4, 5, 6, 6]
+// only arrays
+// for (let value of arr) {
+//       console.log('value')
+// }
+
+const btns = document.getElementsByTagName('button');
+
+console.log(btns);
+console.log(btns[1]);
+
+const circles = document.getElementsByClassName('circle');
+console.log(circles[1]);
+
+const hearts = document.querySelectorAll('.hearts');// . for selectors
+
+// console.log(hearts[1]);
+
+const oneHeart = document.querySelector('.hearts'); //first selector with this name
+// //
+// oneHeart.style.width = '500px';
+// oneHeart.style.backgroundColor = 'blue';
+
+// box.style.backgroundColor = 'blue';
+// box.style.width = '500px';
 
 
+const num = '500px';
+box.style.cssText = `background-color: blue; width: ${num}`;
 
-// jonh.__proto__ = soldier;
+btns[1].style.borderRadius = '100%';
+circles[1].style.backgroundColor = 'blue';
 
-// Object.setPrototypeOf(jonh, soldier);
+// for (let i = 0; i < hearts.length; i++) {
+//       hearts[i].style.backgroundColor = 'blue';
+// }
 
-// jonh.sayHello(15);
+hearts.forEach(item => {
+   item.style.backgroundColor = 'blue';
+});
 
-// console.log(jonh.armor);
+const div = document.createElement('div');
+// const text = document.createTextNode('Тут был я');
 
-console.log(typeof(String(null)));
+div.classList.add('black');
