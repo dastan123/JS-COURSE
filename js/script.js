@@ -663,53 +663,65 @@
 // // }
 // // while (num <= 55);
 
+const box = document.getElementById('box'),
+      btns = document.getElementsByTagName('button'),
+      circles = document.getElementsByClassName('circle'),
+      wrapper = document.querySelector('.wrapper'),
+      hearts = wrapper.querySelectorAll('.hearts'),// . for selectors
+      oneHeart = wrapper.querySelector('.hearts'); //first selector with this name
 
-const box = document.getElementById('box');
 
-console.log(box);
 
-// const arr = [1, 2, 4, 5, 6, 6]
+      const arr = [1, 2, 4, 5, 6, 6];
 // only arrays
-// for (let value of arr) {
-//       console.log('value')
-// }
+for (let value of arr) {
+      console.log(`value`);
+}
 
-const btns = document.getElementsByTagName('button');
-
-console.log(btns);
-console.log(btns[1]);
-
-const circles = document.getElementsByClassName('circle');
-console.log(circles[1]);
-
-const hearts = document.querySelectorAll('.hearts');// . for selectors
 
 // console.log(hearts[1]);
 
-const oneHeart = document.querySelector('.hearts'); //first selector with this name
-// //
 // oneHeart.style.width = '500px';
 // oneHeart.style.backgroundColor = 'blue';
 
 // box.style.backgroundColor = 'blue';
 // box.style.width = '500px';
 
-
-const num = '500px';
-box.style.cssText = `background-color: blue; width: ${num}`;
-
-btns[1].style.borderRadius = '100%';
-circles[1].style.backgroundColor = 'blue';
-
 // for (let i = 0; i < hearts.length; i++) {
-//       hearts[i].style.backgroundColor = 'blue';
+//       hearts[i].style.cssText = 'background-color: green;';
 // }
 
 hearts.forEach(item => {
    item.style.backgroundColor = 'blue';
 });
+console.log(hearts);
 
 const div = document.createElement('div');
 // const text = document.createTextNode('Тут был я');
 
 div.classList.add('black');
+// div.style.cssText = `width: 500px; background-color: black; height: 100px`;
+
+// wrapper.append(div);
+// wrapper.style.cssText = `display: flex`;
+// wrapper.prepend(div);
+// wrapper.appendChild(div);
+hearts[2].before(div);
+
+// wrapper.insertBefore(div, hearts[2]);
+
+// circles[0].remove();
+// circles[0].style.backgroundColor = 'blue';
+
+hearts[2].replaceWith(circles[2]);
+
+// wrapper.remove();
+// wrapper.removeChild(hearts[0]);
+
+// wrapper.replaceChild(circles[2], hearts[1]);
+
+// div.textContent = "<p>Hello</p>"; //only strin
+
+div.innerHTML = "<h1>Hello World</h1>"; 
+
+div.insertAdjacentHTML('afterbegin', '<h2>Hello</h2>'); //useful
