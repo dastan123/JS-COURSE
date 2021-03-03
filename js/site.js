@@ -1,46 +1,76 @@
-let footerList = document.querySelector(".nav-footer-list"),
-    markTag = document.querySelector(".marketing-tag"),
-    markTextMain = document.querySelector(".marketing-text"),
-    img = document.querySelector('.town-img'),
-    nav = document.getElementsByTagName('nav');
+// let   adv = document.querySelectorAll('.nav'),
+//       markTag = document.querySelector('.marketing-tag'),
+//       header = document.querySelector('.please'),
+//       img = document.querySelector('.button-try-container'),
+//       button = document.querySelectorAll('.btn');
 
-footerList.remove();
+// adv.forEach(item => {
+//       item.remove();
+// });
 
-markText = '';
+// markTag.textContent = 'hello'; //please use this
+// // markTag.innerHTML = '<h2>skajdf</h2>'; //please use this
 
-markText.innerHTML = "<h2>YOur app congratilation</h2>";
+// header.style.backgroundImage = 'url("img/download-app-img.png")'; // please use this
 
-markTag.replaceWith(markText);
+// const movieDB = {
+//       movies: [
+//             "Логан",
+//             "Лига справедливости",
+//             "Ла-ло лэнд",
+//             "Одержимость",
+//             "Скотт Пилигри против"
+//       ]
+// };
 
-const div = document.createElement('div');
+// img.innerHTML = '';
 
-div.classList.add('marketing-tag');
+// movieDB.movies.sort();
 
-div.innerHTML = "<h2>YOur app congratilation</h2>";
+// movieDB.movies.forEach((film, i) => {
+//       img.innerHTML += `
+//          <p class="marketing-text">${i + 1} ${film}
+//       `;
+// });
 
-div.classList.add('marketing-tag');
 
-markTextMain.append(div);
+// console.log(markTag.innerHTML);
+// let a = 0;
+// let b = 0;
 
-const imgBack = document.createElement('img');
+// a = a + 1;
+// b += '1';
 
-imgBack.src = "/img/check-mark.png";
+// console.log(a);
+// console.log(b);
 
-img.replaceWith(imgBack);
+let button = document.querySelector('.button-nav'),
+      nav = document.querySelector('.nav-list'),
+      tag = document.querySelector('.marketing-tag');
 
-const movieDB = {
-      movies: [
-            "Logan",
-            "alelads",
-            'leage of justice',
+tag.textContent = 'helokasjdfs';
+
+button.innerHTML = '<h1>Hello</h1>';
+
+button.style.cssText = 'background-color: black; width: 200px; height: 200px;';
+
+let navi = {
+      navigation: [
+            'House',
+            'FAQ',
+            'HELLO'
       ]
 };
 
-for (let key in movieDB) {
-      for (let i in movieDB[key]) {
-            console.log(`${i[0]} ${movieDB[key][0]}`);
-      }
-}
+nav.innerHTML = '';
 
-// nav.replaceWith(movieDB);
+navi.navigation.forEach((element, i) => {
+      nav.innerHTML += `
+      <a class="nav-links" href="">${i + 1} ${element}</a>`;
+});
 
+// movieDB.movies.forEach((film, i) => {
+//       img.innerHTML += `
+//          <p class="marketing-text">${i + 1} ${film}
+//       `;
+// });
