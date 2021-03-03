@@ -255,32 +255,32 @@
 
 // learnJS('JavaScript', done;)
 
-// const options = {
-//       name: 'test',
-//       width: 1024,
-//       height: 1024,
-//       colors: {
-//             border: 'black',
-//             bg: 'red'
-//       }
-// };
+const options = {
+      name: 'test',
+      width: 1024,
+      height: 1024,
+      colors: {
+            border: 'black',
+            bg: 'red'
+      }
+};
 
-// console.log(Object.keys(options).length);
+console.log(Object.keys(options).length);
 // console.log(options["colors"]["bg"]);
 
-// delete options.name;
+delete options.name;
 
-// console.log(options);
+console.log(options);
 
-// for (let key in options) {
-//       if (typeof(options[key] === 'object')) {
-//             for (let i in options[key]) {
-//                   console.log(`Properties ${i} has value ${options[key]}`);
-//             }
-//       } else {
-//             console.log(`Properties ${key} has value ${options[key]}`);
-//       }
-// }
+for (let key in options) {
+      if (typeof(options[key] === 'object')) {
+            for (let i in options[key]) {
+                  console.log(`Properties ${i} has value ${options[key]}`);
+            }
+      } else {
+            console.log(`Properties ${key} has value ${options[key]}`);
+      }
+}
 
 // const soldier = {
 //       name: 'Jonatan',
@@ -663,65 +663,66 @@
 // // }
 // // while (num <= 55);
 
-const box = document.getElementById('box'),
-      btns = document.getElementsByTagName('button'),
-      circles = document.getElementsByClassName('circle'),
-      wrapper = document.querySelector('.wrapper'),
-      hearts = wrapper.querySelectorAll('.hearts'),// . for selectors
-      oneHeart = wrapper.querySelector('.hearts'); //first selector with this name
+// const box = document.getElementById('box'),
+//       btns = document.getElementsByTagName('button'),
+//       circles = document.getElementsByClassName('circle'),
+//       wrapper = document.querySelector('.wrapper'),
+//       hearts = wrapper.querySelectorAll('.hearts'),// . for selectors
+//       oneHeart = wrapper.querySelector('.hearts'); //first selector with this name
 
 
 
-      const arr = [1, 2, 4, 5, 6, 6];
-// only arrays
-for (let value of arr) {
-      console.log(`value`);
-}
-
-
-// console.log(hearts[1]);
-
-// oneHeart.style.width = '500px';
-// oneHeart.style.backgroundColor = 'blue';
-
-// box.style.backgroundColor = 'blue';
-// box.style.width = '500px';
-
-// for (let i = 0; i < hearts.length; i++) {
-//       hearts[i].style.cssText = 'background-color: green;';
+//       const arr = [1, 2, 4, 5, 6, 6];
+// // only arrays
+// for (let value of arr) {
+//       console.log(`value`);
 // }
 
-hearts.forEach(item => {
-   item.style.backgroundColor = 'blue';
-});
-console.log(hearts);
 
-const div = document.createElement('div');
-// const text = document.createTextNode('Тут был я');
+// // console.log(hearts[1]);
 
-div.classList.add('black');
-// div.style.cssText = `width: 500px; background-color: black; height: 100px`;
+// // oneHeart.style.width = '500px';
+// // oneHeart.style.backgroundColor = 'blue';
 
-// wrapper.append(div);
-// wrapper.style.cssText = `display: flex`;
-// wrapper.prepend(div);
-// wrapper.appendChild(div);
-hearts[2].before(div);
+// // box.style.backgroundColor = 'blue';
+// // box.style.width = '500px';
 
-// wrapper.insertBefore(div, hearts[2]);
+// // for (let i = 0; i < hearts.length; i++) {
+// //       hearts[i].style.cssText = 'background-color: green;';
+// // }
 
-// circles[0].remove();
-// circles[0].style.backgroundColor = 'blue';
+// hearts.forEach(item => {
+//    item.style.backgroundColor = 'blue';
+// });
+// console.log(hearts);
 
-hearts[2].replaceWith(circles[2]);
+// const div = document.createElement('div');
+// // const text = document.createTextNode('Тут был я');
 
-// wrapper.remove();
-// wrapper.removeChild(hearts[0]);
+// div.classList.add('black');
+// // div.style.cssText = `width: 500px; background-color: black; height: 100px`;
 
-// wrapper.replaceChild(circles[2], hearts[1]);
+// // wrapper.append(div);
+// // wrapper.style.cssText = `display: flex`;
+// // wrapper.prepend(div);
+// // wrapper.appendChild(div);
+// hearts[2].before(div);
 
-// div.textContent = "<p>Hello</p>"; //only strin
+// // wrapper.insertBefore(div, hearts[2]);
 
-div.innerHTML = "<h1>Hello World</h1>"; 
+// // circles[0].remove();
+// // circles[0].style.backgroundColor = 'blue';
 
-div.insertAdjacentHTML('afterbegin', '<h2>Hello</h2>'); //useful
+// hearts[2].replaceWith(circles[2]);
+
+// // wrapper.remove();
+// // wrapper.removeChild(hearts[0]);
+
+// // wrapper.replaceChild(circles[2], hearts[1]);
+
+// // div.textContent = "<p>Hello</p>"; //only strin
+
+// div.innerHTML = "<h1>Hello World</h1>"; 
+
+// div.insertAdjacentHTML('afterbegin', '<h2>Hello</h2>'); //useful
+
