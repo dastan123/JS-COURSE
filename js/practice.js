@@ -1,4 +1,6 @@
-"use strict";
+'use strict';
+/* jshint node: true */
+/* jshint browser: true */
 // my project
 //  const numberOfFilms = [];
 

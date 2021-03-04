@@ -44,33 +44,33 @@
 // console.log(a);
 // console.log(b);
 
-let button = document.querySelector('.button-nav'),
-      nav = document.querySelector('.nav-list'),
-      tag = document.querySelector('.marketing-tag');
+// let button = document.querySelector('.button-nav'),
+//       nav = document.querySelector('.nav-list'),
+//       tag = document.querySelector('.marketing-tag');
 
-tag.textContent = 'helokasjdfs';
+// tag.textContent = 'helokasjdfs';
 
-button.innerHTML = '<h1>Hello</h1>';
+// button.innerHTML = '<h1>Hello</h1>';
 
-button.style.cssText = 'background-color: black; width: 200px; height: 200px;';
+// button.style.cssText = 'border: black; background-color: black; width: 200px; height: 200px;';
 
-let navi = {
-      navigation: [
-            'House',
-            'FAQ',
-            'HELLO'
-      ]
-};
+// let navi = {
+//       navigation: [
+//             'House',
+//             'FAQ',
+//             'HELLO'
+//       ]
+// };
 
-nav.innerHTML = '';
+// nav.innerHTML = '';
 
-navi.navigation.forEach((element, i) => {
-      nav.innerHTML += `
-      <a class="nav-links" href="">${i + 1} ${element}</a>`;
-});
-
-// movieDB.movies.forEach((film, i) => {
-//       img.innerHTML += `
-//          <p class="marketing-text">${i + 1} ${film}
-//       `;
+// navi.navigation.forEach((element, i) => {
+//       nav.innerHTML += `
+//       <a class="nav-links" href="">${i + 1} ${element}</a>`;
 // });
+
+// // movieDB.movies.forEach((film, i) => {
+// //       img.innerHTML += `
+// //          <p class="marketing-text">${i + 1} ${film}
+// //       `;
+// // });
