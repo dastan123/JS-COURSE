@@ -74,3 +74,5 @@
 // //          <p class="marketing-text">${i + 1} ${film}
 // //       `;
 // // });
+
+console.log('some js')
