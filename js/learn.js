@@ -1,85 +1,111 @@
-const now = new Date(0);
-// new Date.parse('2021-03-06');
+window.addEventListener('DOMContentLoaded', () => {
+      // Timer
+
+      // const deadLine = '2021-03-07';
+
+      // function getTimaRemaning(endtime) {
+      //       const t = Date.parse(endtime) - Date.parse(new Date()),
+      //             days = Math.floor(t / (1000 * 60 * 60 * 24)),
+      //             hours = Math.floor((t / (1000 * 60 * 60) % 24)),
+      //             minutes = Math.floor((t / 1000 / 60) % 60),
+      //             seconds = Math.floor((t / 1000) % 60);
+
+      //       return {
+      //             'total': t,
+      //             'days': days,
+      //             'hours': hours,
+      //             'minutes': minutes,
+      //             'seconds': seconds
+      //       };
+      // }
+
+      // function getZero(num) {
+      //       if (num >= 0 && num < 10) {
+      //             return `0${num}`;
+      //       } else {
+      //             return num;
+      //       }
+      // }
+
+      // function setClock(selector, endtime) {
+      //       const timer = document.querySelector(selector),
+      //             days = timer.querySelector('.days'),
+      //             hours = timer.querySelector('.hours'),
+      //             minutes = timer.querySelector('.minutes'),
+      //             seconds = timer.querySelector('.seconds'),
+      //             timeInterval = setInterval(updateClock, 1000);
+
+      //       updateClock();
+
+      //       function updateClock() {
+      //             const t = getTimaRemaning(endtime);
+
+      //             days.innerHTML =  getZero(t.days);
+      //             hours.innerHTML =  getZero(t.hours);
+      //             minutes.innerHTML =  getZero(t.minutes);
+      //             seconds.innerHTML =  getZero(t.seconds);
+            
+      //             if (t.total <= 0) {
+      //                   clearInterval(timeInterval);
+      //             }
+      //       }
+      // }
+      // setClock('.timer', deadLine);
+
+      const deadLine = '2021-05-01';
+
+      function getTimeRemaning(endtime) {
+            const t = Date.parse(endtime) - Date.parse(new Date()),
+                  hours = Math.floor(t / (1000 * 60 * 60) % 24),
+                  minutes = Math.floor((t / 1000 / 60) % 60),
+                  seconds = Math.floor((t / 1000) % 60);
+
+                  // return {
+                  //       'total': t,
+                  //       'hours': hours,
+                  //       'minutes': minutes,
+                  //       'seconds': seconds
+                  // };
+                  return {
+                                    'total': t,
+                                    'hours': hours,
+                                    'minutes': minutes,
+                                    'seconds': seconds
+                              };
+      }
+
+      function getZero(num) {
+            if (num >= 0 && num < 10) {
+                  return `0${num}`;
+            } else {
+                  return num;
+            }
+      }
+
+      function setClock(selectors, endtime) {
+      const timer = document.querySelector(selectors),
+            hours = timer.querySelector('.hours'),
+            minutes = timer.querySelector('.minutes'),
+            seconds = timer.querySelector('.seconds'),
+            timeInterval = setInterval(updateClock, 1000);
+
+                  updateClock();
+
+      function updateClock() {
+            const t = getTimeRemaning(endtime);
+
+            hours.innerHTML =  getZero(t.hours);
+            minutes.innerHTML = getZero(t.minutes);
+            seconds.innerHTML = getZero(t.seconds);
+
+      if (t.total <= 0) {
+                  clearInterval(timeInterval);
+      }
+}
 
-// console.log(now.getday());
+}
 
+setClock('.timer', deadLine);
 
-// console.log(now.getDay());
-// console.log(now.getUTCHours());
-console.log(now.getDay());
-console.log(now.getMonth());
-console.log(now.getDate());
-console.log(now.getFullYear());
-console.log(now.getHours());
-console.log(now.getMinutes());
-
-console.log(now.getTimezoneOffset());
-console.log(now.getTime());
-
-// let start = new Date();
-
-// for (let i = 0; i < 100000; i++) {
-//       let some = i ** 3;
-// }
-
-// let end = new Date();
-
-// alert(`it worked ${end - start}`);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
 
