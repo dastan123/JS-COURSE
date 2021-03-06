@@ -1,111 +1,79 @@
-window.addEventListener('DOMContentLoaded', () => {
-      // Timer
+const box = document.querySelector('.box'),
+      btn = document.querySelector('button');
 
-      // const deadLine = '2021-03-07';
+// const width = box.clientWidth;
+// const height = box.clientHeight;
 
-      // function getTimaRemaning(endtime) {
-      //       const t = Date.parse(endtime) - Date.parse(new Date()),
-      //             days = Math.floor(t / (1000 * 60 * 60 * 24)),
-      //             hours = Math.floor((t / (1000 * 60 * 60) % 24)),
-      //             minutes = Math.floor((t / 1000 / 60) % 60),
-      //             seconds = Math.floor((t / 1000) % 60);
 
-      //       return {
-      //             'total': t,
-      //             'days': days,
-      //             'hours': hours,
-      //             'minutes': minutes,
-      //             'seconds': seconds
-      //       };
-      // }
+// const width = box.offsetWidth;
+// const height = box.offsetHeight;
 
-      // function getZero(num) {
-      //       if (num >= 0 && num < 10) {
-      //             return `0${num}`;
-      //       } else {
-      //             return num;
-      //       }
-      // }
 
-      // function setClock(selector, endtime) {
-      //       const timer = document.querySelector(selector),
-      //             days = timer.querySelector('.days'),
-      //             hours = timer.querySelector('.hours'),
-      //             minutes = timer.querySelector('.minutes'),
-      //             seconds = timer.querySelector('.seconds'),
-      //             timeInterval = setInterval(updateClock, 1000);
+const width = box.scrollWidth;
+const height = box.scrollHeight;
 
-      //       updateClock();
+console.log(width, height);
 
-      //       function updateClock() {
-      //             const t = getTimaRemaning(endtime);
-
-      //             days.innerHTML =  getZero(t.days);
-      //             hours.innerHTML =  getZero(t.hours);
-      //             minutes.innerHTML =  getZero(t.minutes);
-      //             seconds.innerHTML =  getZero(t.seconds);
-            
-      //             if (t.total <= 0) {
-      //                   clearInterval(timeInterval);
-      //             }
-      //       }
-      // }
-      // setClock('.timer', deadLine);
-
-      const deadLine = '2021-05-01';
-
-      function getTimeRemaning(endtime) {
-            const t = Date.parse(endtime) - Date.parse(new Date()),
-                  hours = Math.floor(t / (1000 * 60 * 60) % 24),
-                  minutes = Math.floor((t / 1000 / 60) % 60),
-                  seconds = Math.floor((t / 1000) % 60);
-
-                  // return {
-                  //       'total': t,
-                  //       'hours': hours,
-                  //       'minutes': minutes,
-                  //       'seconds': seconds
-                  // };
-                  return {
-                                    'total': t,
-                                    'hours': hours,
-                                    'minutes': minutes,
-                                    'seconds': seconds
-                              };
-      }
-
-      function getZero(num) {
-            if (num >= 0 && num < 10) {
-                  return `0${num}`;
-            } else {
-                  return num;
-            }
-      }
-
-      function setClock(selectors, endtime) {
-      const timer = document.querySelector(selectors),
-            hours = timer.querySelector('.hours'),
-            minutes = timer.querySelector('.minutes'),
-            seconds = timer.querySelector('.seconds'),
-            timeInterval = setInterval(updateClock, 1000);
-
-                  updateClock();
-
-      function updateClock() {
-            const t = getTimeRemaning(endtime);
-
-            hours.innerHTML =  getZero(t.hours);
-            minutes.innerHTML = getZero(t.minutes);
-            seconds.innerHTML = getZero(t.seconds);
-
-      if (t.total <= 0) {
-                  clearInterval(timeInterval);
-      }
-}
-
-}
-
-setClock('.timer', deadLine);
-
+btn.addEventListener('click', e => {
+      // box.style.cssText = "overflow: inherit;";
+      // box.style.height = box.scrollHeight + 'px';
+      console.log(box.scrollTop);
 });
+
+console.log(box.getBoundingClientRect().top);
+
+const style = window.getComputedStyle(box);
+
+console.log(style.display);
+
+// console.log(document.documentElement.scrollTop);
+
+// document.documentElement.scroll = 0;
+// 0
+// document.documentElement.scrollTop = 0;
+// 0
+// document.documentElement.scrollBy(0, 400);
+// undefined
+// document.documentElement.scrollBy(-100);
+// VM282:1 Uncaught TypeError: Failed to execute 'scrollBy' on 'Element': cannot convert to dictionary.
+//     at <anonymous>:1:26
+// (anonymous) @ VM282:1
+// document.documentElement.scrollBy(0, 700);
+// undefined
+// document.documentElement.scrollBy(0, 700);
+// undefined
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
