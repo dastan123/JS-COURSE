@@ -1,10 +1,23 @@
 .box {
       position: absolute;
-      width: 100px;
-      height: 100px;
-      background-color: blue;
+      width: 400px;
+      height: 400px;
+}
+.box-2 {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+}
+.page-set {
+      position: absolute;
+      top: 400px;
+      left: 350px;
+      width: 400px;
+      height: 400px;
 }
 .wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
       position: relative;
       width: 400px;
       height: 400px;
@@ -19,3 +32,26 @@ button {
       background-color: yellow;
       border: none
 }
+
+.register-form {
+      position: absolute;
+      margin-left: 700px;
+      top: 0;
+      background-color: red;
+      /* right: 900; */
+}
+
+.delete-button {
+      margin-left: 200px;
+}
+.show {
+      display: block;
+}
+.hide {
+      display: none;
+}
+
+.long {
+      height: 5000px;
+}
+

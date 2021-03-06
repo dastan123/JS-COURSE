@@ -1,50 +1,80 @@
-const btn = document.querySelector('button'),
-      btnStop = document.querySelector('.set-interval-button');
-      let timeId,
-            i = 0;
 
-function myAnimation() {
-      const elem = document.querySelector('.box');
-      let pos = 0;
+const btn = document.querySelector('.button'),
+      btnDelete = document.querySelector('.delete-button'),
+      box = document.querySelectorAll('.box'),
+      boxBig = document.querySelector('.box-2'),
+      set = document.querySelector('.page-set'),
+      form = document.querySelector('.register-form');
 
-      const id = setInterval(frame, 10);
-      function frame() {
-            if (pos == 300) {
-                  clearInterval(id);
-            } else {
-                  pos++;
-                  elem.style.top = pos + 'px';
-                  elem.style.left = pos + 'px';
-            }
-      //       if (pos == 300) {
-      // const id = setInterval(fram, 10);
-      //             function fram() {
-      //             pos++;
-      //             elem.style.bottom = pos + 'px';
-      //             elem.style.right = pos + 'px';
-      //             }
-      //       }
+function showNextPage(i = 0) {
+      box[i].classList.remove('hide'); 
+      box[i].classList.add('show'); 
+}
+
+function hideNextPage() {
+      box.forEach(item => {
+      item.classList.remove('show'); 
+      item.classList.add('hide'); 
+      });
+}
+
+hideNextPage();
+showNextPage();
+
+btn.addEventListener('click', e => {
+ 
+      if(box[0].classList.contains('show')) {
+            hideNextPage();
+      }
+      if (box[1].classList.contains('hide'))
+      {
+            showNextPage(1);
+      }
+});
+
+btnDelete.addEventListener('click', e => {
+      if(box[1].classList.contains('show')) {
+            hideNextPage();
+      }
+      if(box[0].classList.contains('hide')) {
+            showNextPage();
+      }
+});
+// let num = '1';
+// // num.innerHTML = "<a>kalsdf</a>";
+// num.
+// set.before(num);
+
+
+function hideForm(arr) {
+      arr.classList.add('hide');
+}
+
+function showForm() {
+
+   
+      if (form.classList.contains('hide')) {
+            form.classList.remove('hide');
+            form.classList.add('show');
+      }
+  
+     
+      console.log('hello');
+}
+
+function showBigForm() {
+      if (form.classList.contains('show')) {
+            form.classList.remove('show');
+            form.classList.add('hide');
       }
 }
-myAnimation();
 
-btn.addEventListener('click', myAnimation());
+hideForm(form);
 
-// btnStop.addEventListener('click', e => {
-//       clearInterval(timeId);
-// });
+const timeI = setInterval(showBigForm, 1000);
+const timeId = setInterval(showForm, 1000);
 
-// // clearInterval(timerId);
 
-// function logger () {
-//       if (i === 3) {
-//       clearInterval(timeId);
-//       }
-//       console.log('text');
-//       i++;
-// }
 
-// let id = setTimeout(function log() {
-//       console.log('Hello');
-//       id = setTimeout(log, 500);
-// }, 500);
+
+
