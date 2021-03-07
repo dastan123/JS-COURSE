@@ -1,79 +1,79 @@
-const box = document.querySelector('.box'),
-      btn = document.querySelector('button');
+window.addEventListener('DOMContentLoaded', () => {
 
-// const width = box.clientWidth;
-// const height = box.clientHeight;
+// Modal
+
+const btnModal = document.querySelectorAll('.btn-modal'),
+      btnClose = document.querySelector('.btn-close'),
+      modal = document.querySelector('.modal'),
+      btnWrapper = document.querySelector('.button-container');
+
+      function hideModal() {
+            // modal.style.display = "none";
+            modal.classList.add('hide');
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+      }
+
+      function showModal() {
+            modal.classList.add('show');
+            modal.classList.remove('hide');
+            document.body.style.overflow = 'hidden';
+
+      }
+      hideModal();
 
 
-// const width = box.offsetWidth;
-// const height = box.offsetHeight;
+      // btnModal.addEventListener('click', e => {
+      //       modal.style.display = "block";
+      // });
 
+      // btnWrapper.addEventListener('click', e => {
+      //       const target = e.target;
+      //       console.log('Hello');
+      //       btnModal.forEach((item, i) => {
+      //             if (target == item) {
+      //       // modal.style.display = "block"
+      //       item.classList.add('active');
+      //       showModal();
+      //             }
+      //       });
 
-const width = box.scrollWidth;
-const height = box.scrollHeight;
+      // });
 
-console.log(width, height);
+      btnModal.forEach(item => {
+            item.addEventListener('click', e => {
+                  showModal();
 
-btn.addEventListener('click', e => {
-      // box.style.cssText = "overflow: inherit;";
-      // box.style.height = box.scrollHeight + 'px';
-      console.log(box.scrollTop);
+            });
+      });
+
+      const button = document.createElement('button');
+
+      button.textContent = 'Click';
+
+      button.classList.add('btn-modal');
+
+      btnWrapper.append(button);
+
+      btnClose.addEventListener('click', e => {
+            modal.classList.toggle('hide');
+            document.body.style.overflow = '';
+      });
+      modal.addEventListener('click', e => {
+            const target = e.target;
+
+            if (target === modal) {
+                  hideModal();
+            }
+      });
+
+      document.addEventListener('keydown', (e) => {
+            if (e.code === "Escape") {
+                  hideModal();
+            }
+            if (e.code === "KeyF") {
+                  showModal();
+            }
+      });
+      
 });
-
-console.log(box.getBoundingClientRect().top);
-
-const style = window.getComputedStyle(box);
-
-console.log(style.display);
-
-// console.log(document.documentElement.scrollTop);
-
-// document.documentElement.scroll = 0;
-// 0
-// document.documentElement.scrollTop = 0;
-// 0
-// document.documentElement.scrollBy(0, 400);
-// undefined
-// document.documentElement.scrollBy(-100);
-// VM282:1 Uncaught TypeError: Failed to execute 'scrollBy' on 'Element': cannot convert to dictionary.
-//     at <anonymous>:1:26
-// (anonymous) @ VM282:1
-// document.documentElement.scrollBy(0, 700);
-// undefined
-// document.documentElement.scrollBy(0, 700);
-// undefined
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

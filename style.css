@@ -1,16 +1,50 @@
-.box {
-      box-sizing: border-box;
-      width: 400px;
-      height: 350px;
-      /* overflow: scroll; */
-      margin: 0 auto;
-      margin-top: 50px;
-      padding: 10px;
+.hide {
+      display: none;
 }
-button {
-      width: 100px;
+
+.modal {
+      background-color: black;
+      width: 600px;
+      height: 200px;
+      position: absolute;
+      top: 500px;
+      left: 600px;
+}
+label {
+      color: white;
+}
+
+input[type="text"] {
+      width: 150px;
+      height: 30px;
+}
+
+.btn-close {
+      margin-top: 100px;
+      width: 90px;
       height: 40px;
-      display: block;
-      margin: 0 auto;
-      margin-top: 20px;
+      margin-left: 100px;
+}
+
+.active {
+      font-size: 30px;
+      color: green;
+      background-color: red; 
+}
+
+.btn-modal {
+     background-color: black;
+      text-align: center;
+      font-size: 20px;
+      width: 170px;
+      height: 60px;
+      border: none;
+      color: white;
+      cursor: pointer;
+}
+
+.button-container {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
 }
