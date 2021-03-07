@@ -26,11 +26,7 @@ input[type="text"] {
       margin-left: 100px;
 }
 
-.active {
-      font-size: 30px;
-      color: green;
-      background-color: red; 
-}
+
 
 .btn-modal {
      background-color: black;
@@ -41,6 +37,12 @@ input[type="text"] {
       border: none;
       color: white;
       cursor: pointer;
+}
+
+.active {
+      font-size: 30px;
+      color: green;
+      background-color: red; 
 }
 
 .button-container {
