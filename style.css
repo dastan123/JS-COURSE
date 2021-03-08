@@ -1,0 +1,44 @@
+body {
+      background-color: black;
+}
+
+.menu-block{
+      width: 350px;
+      height: 600px;
+}
+
+.elements {
+      display: flex;
+}
+
+.cost {
+      margin-right: 150px;
+}
+.number {
+      margin-right: 10px;
+      margin-top: 16px;
+}
+
+.container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+.tabs {
+      margin-left: 500px;
+}
+
+.back-img {
+      background-color: white;
+      width: 100px;
+      height: 100px;
+      border-radius: 150px;
+}
+
+.youtube-img {
+}
+
+.tag-youtube {
+      color: white;
+      margin-left: 525px;
+}
