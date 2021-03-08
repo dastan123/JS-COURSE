@@ -1,82 +1,36 @@
-'use strict';
+'use strict'; 
 
-// function showThis(a, b) {
-//       console.log(this);
-//       function sum() {
-//             console.log(this);
-//             return a + b;
-//       }
-//       console.log(sum());
-// }
+class Rectangle {
+      constructor(height, width) {
+            this.height = height;
+            this.width = width;
+      }
 
-// showThis(4, 6);
+      calcArea() {
+       return this.height * this.width;     
+      }
+}
 
-// const obj = {
-//       a: 20,
-//       b: 15,
-//       sum: function() {
-//       console.log(this.a);
-//             function shout() { 
-//                   console.log(this);
-//             }
-//             shout();
-//       }
-// };
+class ColoredRectangleText extends Rectangle {
+      constructor(height, width, text, bgColor) {
+            super(height, width); // his parent this.height = height; // only 1 stroke
+            this.text = text;
+            this.bgColor = bgColor;
+      }
 
-// obj.sum();
+      showMyProps() {
+            console.log(`Text: ${this.text}, color ${this.bgColor}`);
+      }
+ }
 
-// function User(name, id) {
-//       this.name = name;
-//       this.id = id;
-//       this.human = true;
-// }
-// let ivan = new User('Ivan', 23);
+ const div = new ColoredRectangleText(25, 10, 'Hello World', 'red');
+ 
+ div.showMyProps();
+ console.log(div.calcArea());
+ console.log(div);
 
-// function sayName() {
-//       console.log(this);
-//       console.log(this.name + this.surname );
-// }
+// const square = new Rectangle(10, 10);
+// const log = new Rectangle(20, 100);
 
-// const user = {
-//       name: 'Jonh',
-//       surname: 'Smith'
-// };
-
-// sayName.call(user);
-// sayName.apply(user);
-
-// function count(num) {
-//       return this*num;
-// }
-
-// const double = count.bind(2);
-// console.log(double(3));
-// console.log(double(13));
-
-
-// 1) Обычная функция this = window, но если use strict = undefined
-// 2) Контекст у методов обЬекта это сам обьект
-// 3) this в конструкторах и классах - это новый экземпляр обьекта
-// 4) Ручная привязка this: call, apply, bind
-
-// const btn = document.querySelector('button');
-
-// btn.addEventListener('click', function(){ // only if function not working with =>
-//       this.style.backgroundColor = "blue";
-// });
-
-// const obj = {
-//       num: 5,
-//       sayNumber: function() {
-//             const say = () => { //this will work 
-//                   console.log(this.num);
-//             };
-//       say();
-//       }
-// };
-
-// obj.sayNumber();
-
-// const double = a => a * 2; // if only 1 stroke return automatic without ()
-
-// console.log(double(4));
+// console.log(square.calcArea());
+// console.log(log.calcArea());
