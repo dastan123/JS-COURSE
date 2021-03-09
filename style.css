@@ -1,6 +1,4 @@
-body {
-      background-color: black;
-}
+/* 
 
 .menu-block{
       width: 350px;
@@ -41,4 +39,116 @@ body {
 .tag-youtube {
       color: white;
       margin-left: 525px;
+} */
+
+.text {
+      font-size: 36px;
+}
+
+.btn {
+      width: 150px;
+      height: 60px;
+      font-size: 25px;
+      color: blue;
+      background-color: red;
+}
+
+.active {
+      font-size: 25px;
+}
+
+li {
+      list-style: none;
+      font-size: 20px;
+      margin-left: 100px;
+}
+
+.nav-list {
+      display: flex;
+      margin-left: 500px;
+}
+
+.show {
+      display: block;
+}
+
+.hide {
+      display: none;
+}
+
+input[type="text"] {
+      width: 200px;
+      height: 35px;
+      border: 1px solid black;
+      margin-bottom: 15px;
+}
+
+input[type="password"] {
+      width: 200px;
+      height: 35px;
+      border: 1px solid black;
+      margin-bottom: 20px;
+}
+button {
+      width: 100px;
+      height: 40px;
+      background-color: black ;
+      color: white;
+}
+
+.modal-wrapper {
+      width: 300px;
+      background-color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+}
+
+.modal {
+      width: 1920px;
+}
+
+.container {
+      display: flex;
+      justify-content: space-around;
+}
+
+.prototype1 {
+      text-align: center;
+      width: 400px;
+      border: 1px solid black;
+
+}
+
+.coding-tag {
+      font-size: 30px;
+}
+
+.timer-container {
+      height: 200px;
+      background-color: yellow;
+}
+
+.timer-block span {
+      font-size: 40px;
+}
+
+.timer {
+      display: flex;
+      margin-left: 550px;
+}
+
+.timer-block {
+      margin-right: 15px;
+      margin-top: 80px;
+}
+
+.timer-text {
+      font-size: 35px;
+}
+
+.timer-block-1 {
+      margin-top: 45px;
+      margin-right: 20px;
 }

@@ -1,976 +1,217 @@
-// 'use strict';
-// /* jshint node: true */
-// /* jshint browser: true */
-//  /* global alert */
-// // var, let, const
-// // Strings, Numbers, Boolean, null, undefined, Symbol
+const deadline = '2021-05-07';
+
+function getTimeRemaining(endtime) {
+      const t = Date.parse(endtime) - Date.parse(new Date()),
+            days = Math.floor(t / (1000 * 60 * 60 * 24)),
+            hours = Math.floor(t / (1000 * 60 * 60) % 60),
+            minutes = Math.floor((t / 1000 * 60) % 60),
+            seconds = Math.floor((t / 1000) % 60);
+
+
+      return {
+            'total': t,
+            'days': days,
+            'hours': hours,
+            'minutes': minutes,
+            'seconds': seconds
+      };
+}
+
+function getZero(num) {
+      if (num >=0 && num < 10) {
+            return `0${num}`;
+      } else {
+            return num;
+      }
+}
+
+function setClock(selector, endtime) {
+      const timer = document.querySelector(selector),
+            day = document.querySelector('.days'),
+            hours = document.querySelector('.hours'),
+            minutes = document.querySelector('.minutes'),
+            second = document.querySelector('.seconds'),
+            time = setInterval(updateClock, 1000);
+
+            function updateClock() {
+            const t = getTimeRemaining(endtime);
+
+            day.innerHTML = getZero(t.days);
+            hours.innerHTML = getZero(t.hours);
+            minutes.innerHTML = getZero(t.minutes);
+            second.innerHTML = getZero(t.seconds);
+
+            if (t.total <= 0) {
+                  clearInterval(time);
+            }
+      }
+}
+
+
+
+// tabs
+const listParent = document.querySelector('.nav-list'),
+      li = document.querySelectorAll('.li'),
+      page = document.querySelectorAll('.page');
+
+function deletePages() {
+      page.forEach(item => {
+            item.style.display = "none";
+      });
+   
+      li.forEach(list => {
+            list.classList.remove('active');
+      });
+}
+
+function showPages(i = 0) {
+      page[i].style.display = "block";
+
+      li[i].classList.add('active');
+}
+
+deletePages();
+showPages();
+
+listParent.addEventListener('click', e => {
+      const target = e.target;
+
+      if (target && target.classList.contains('li')) {
+            li.forEach((item, i) => {
+                  if (target == item) {
+                        deletePages();
+                        showPages(i);
+                        setClock('.timer', deadline);
+                  }
+                
+            });
+      }
+});
+
+// view details
+
+const coronaParagraph = document.querySelector('.corono-text'),
+      coronatag = document.querySelector('.corona-tag');
+
+function hideCoronaText(element) {
+      element.classList.add('hide');
+      element.classList.remove('show');
+}
+
+function showCoronaText(element) {
+      element.classList.add('show');
+      element.classList.remove('hide');
+}
+
+coronatag.addEventListener('click', e => {
+      if (coronaParagraph.classList.contains('hide')) {
+            showCoronaText(coronaParagraph);
+      } else {
+            hideCoronaText(coronaParagraph);
+      }
+});
+
+// modal window
+
+const btn = document.querySelector('.modal-open'),
+      modal = document.querySelector('.modal'),
+      modalWrapper = document.querySelector('.modal-wrapper');
+
+function showModal() {
+      modal.classList.add('show');
+      modal.classList.remove('hide');
+      // document.body.style.overflow = "hidden";
+}
+
+function hideModal() {
+      modal.classList.add('hide');
+      modal.classList.remove('show');
+      // document.body.style.overflow = "";
+}
+
+hideModal();
+
+btn.addEventListener('click', e => {
+      if (modal.classList.contains('show')) {
+            hideModal();
+      } else {
+            showModal();
+      }
+
+});
+// const timeout = setTimeout(showModal, 2000);
+
+document.addEventListener('keydown', e => {
+      if (e.code === "Escape") {
+            hideModal();
+      }
+      if (e.code === "KeyF") {
+            showModal();
+          }
+});
+
+function showModalByScroll() {
+      if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight)
+      {
+            showModal();
+            window.removeEventListener('scroll', showModalByScroll);
+      }
+}
+
+window.addEventListener('scroll', showModalByScroll);
+
+// classes 
+
+class codingTab {
+      constructor (src, tag, btn, parentSelector, ...rest) {
+            this.src = src;
+            this.tag = tag;
+            this.btn = btn;  
+            this.rest = rest;
+            this.parent = document.querySelector(parentSelector);
+          }
+
+      render() {
+            const element = document.createElement('div');
+            if (this.rest.length === 0) {
+                  element.classList.add('prototype1');
+            } else {
+                  this.rest.forEach(classes => element.classList.add(classes));
+            }
+            element.innerHTML = `
+            <img src="/img/${this.src}" width="400" height="250" alt="">
+            <p class="coding-tag">${this.tag}</p>
+            <button>${this.btn}</button>
+            `;
+      this.parent.append(element);
+      }
+}
+
+new codingTab (
+      "coding1.jpg",
+      'Get better at coding',
+      'Start coding',
+      '.container',
+      'prototype1'
+).render();
+
+
+new codingTab (
+      "codi.jpg",
+      'Get better at hacking',
+      'Start Hacking',
+      '.container',
+      'prototype1'
+).render();
+
+
+new codingTab (
+      "coding3.jpg",
+      'Get better at everythink',
+      'Start Creating',
+      '.container',
+      'prototype1'
+).render();
+
+// Timer
 
-// // const name = "John";
-// // const age = 30;
-// // const rating = 4.5;
-// // const isCool = true;
-// // const x = null;
-// // const y = undefined;
-// // let z;
-// // console.log(typeof z);
-
-
-// // const name = "Jogn";
-// // const age = 30;
-// // //Concatenation
-// // console.log('My name is ' + name + ' and i am ' + age);
-// // // Template String
-// // const hello = `My name is ${name} and i am ${age}`;
-// // console.log (hello);
-
-
-// // const  s = 'techology, computers, it, code';
-// // console.log(s.split(','));
-
-
-// // Arrays - variables that hold multiple values
-// // const numbers = new Array(1,2,3,4,5);
-
-// // const hello = new Array(1,2,3,4,5);
-// // const fruits = ['apples', 'oranges', 'pears'];
-
-// // fruits[5] ='grapes';
-
-// // fruits.push('mangas');
-
-// // fruits.unshift('strawberries');//puts in the begining
-
-// // fruits.pop();
-
-// // console.log(Array.isArray()); //checking array
-
-// // console.log(fruits.indexOf('grapes'));
-
-// // console.log(fruits);
-
-// // const person = {
-// //       firstName: 'John',
-// //       lastName: 'Doe',
-// //       age: 30,
-// //       hobbies: ['music', 'movies', 'sports'],
-// //       address: {
-// //             street: '50 main st',
-// //             city: 'Boston',
-// //             state: 'Ma'
-// //       }
-// // };
-
-// // console.log(person.firstName, person.lastName, person.hobbies[1]), person.address[1];
-
-// // let hell;
-// // console.log(hell);
-
-// // const person = {
-// //       hobbies:['music', 'movies']
-// // };
-
-// // console.log(person.hobbies[1]);
-
-// // let arr = ['hello', 'grapes', 'mandalini', 6, {}, []];
-
-// // console.log(arr[1]);
-
-// // alert('hello');
-
-// // const result = confirm("Are you here?");
-// // console.log(result);
-
-// // const answer = +prompt("Вам есть 18?", "18");
-
-// // console.log(answer + 5);
-
-// // const answers = [];
-
-// //   answers[0] = prompt('Как ваше имя?', '');
-// //   answers[1] = prompt('Как ваше фамилия?', '');
-// //   answers[2] = prompt('Сколько вам лет?', '');
-
-// //  console.log(answers);
-
-// // const category = 'toys';
-
-// // console.log(`https://someurl.com/${category}/5`);
-
-// // const user = "Ivan";
-
-// // alert(`Hello`, ${user});
-
-// // console.log('arr' + " - object");
-// // console.log(4 + +"5");
-
-// // let incr = 10,
-// //     decro = 10;
-
-// // incr++; + 1 to number
-// // decro--; - 1 to number
-
-// // console.log(++incr);
-// // console.log(--decro);
-
-// // console.log(5%2);
-// // console.log(2*4 != '8');
-
-// // const isChecked = false,
-// //       isClosed = false;
-
-// // console.log(isChecked || !isClosed); 
-
-// // let incr = 10 == 50;
-
-// // ++incr;
-// // console.log(incr);
-
-// // if (4 == 4) {
-// //       console.log('ok!');
-// // } else {
-// //       console.log('error');
-// // }
-
-// // const num = 50;
-
-// // if (num < 49) {
-// //       console.log('Error');
-// // } else if(num > 100) {
-// //      console.log('toomuch');
-// // } else {
-// //       console.log('ok!');
-// // }
-
-// // const num = 50;
-
-// // (num === 50) ? console.log('ok') : console.log('not right');
-
-// // const num = 150;
-
-// // switch (num) {
-// //       case 49: 
-// //             console.log('NO');
-// //             break;
-// //       case 100:
-// //             console.log('NOOOO');
-// //             break;
-// //       case '50': 
-// //       console.log('Yes');
-// //       break;
-// //       default:
-// //             console.log('something is not right');
-// //             break;
-// // }
-
-
-
-// // let num = 20;
-
-// // function showFirstMessage(text) {
-// //       console.log(text);
-// //       let num = 210;
-// //       console.log(num);
-// // }
-
-// // showFirstMessage('Hello World');
-// // console.log(num);
-
-// // function calc(a, b) {
-// //       return (a + b);
-// // }
-
-// // console.log(calc(4, 3));
-// // console.log(calc(5, 6));
-// // console.log(calc(10, 6));
-
-// // function ret() {
-// //       let num = 50;
-// //       return num;
-// // }
-
-// // const anotherNum = ret();
-// // console.log(anotherNum);
-
-// // const foo = function() {
-// //      console.log("Hello");
-// // };
-
-// // foo();
-
-// // const calc = (a, b) => {
-// //       console.log('1');
-// //       return(a + b);
-// // } ;
-
-// // calc();
-
-
-// //  const str = 'test';
-// //  const arr = [1, 2, 4];
-
-// //  console.log(str.toUpperCase());
-// //  console.log(str.toLowerCase());
-
-// //  const fruit = "Hello Some fruit";
-
-// //  console.log(fruit.indexOf("fruit"));
-
-// // const logg = 'Hello World adsfasfasdf';
-
-// // console.log(logg.substr(12));
-
-// // console.log(logg.substring(19, 4));
-
-// // const num = '12.4';
-// // console.log(Math.round(num));
-
-// // const test = '12px';
-// // console.log(parseInt(test));
-// // console.log(parseFloat(test));
-
-// // function first() {
-// //       // Do something 
-// //       setTimeout(function() {
-// //             console.log(1);
-// //       }, 500);
-// // }
-
-// // function second() {
-// //       console.log(2);
-// // }
-
-// // first();
-// // second();
-
-// // function learnJS(lang, callback) {
-// //              setTimeout(function() {
-// //              console.log(`i learn ${lang}`);
-// //        }, 500);
-// //       callback();
-// // }
-
-// // function done() {
-// //       console.log('Я прошел этот урок!');
-// // }
-
-// // learnJS('JavaScript', done;)
-
-// // const options = {
-// //       name: 'test',
-// //       width: 1024,
-// //       height: 1024,
-// //       colors: {
-// //             border: 'black',
-// //             bg: 'red'
-// //       }
-// // };
-
-// // console.log(Object.keys(options).length);
-// // // console.log(options["colors"]["bg"]);
-
-// // delete options.name;
-
-// // console.log(options);
-
-// // for (let key in options) {
-// //       if (typeof(options[key] === 'object')) {
-// //             for (let i in options[key]) {
-// //                   console.log(`Properties ${i} has value ${options[key]}`);
-// //             }
-// //       } else {
-// //             console.log(`Properties ${key} has value ${options[key]}`);
-// //       }
-// // }
-
-// // const soldier = {
-// //       name: 'Jonatan',
-// //       secondname: 'lo',
-// //       muscles: 'good',
-// //       birthday: '2 september',
-// //       age: {
-// //             hello: 'hi',
-// //             priver: 'prive'
-// //       }
-// // }
-
-// // for (let key in soldier) {
-// //       if (typeof(soldier[key]) === 'object') 
-// //       for(let i in soldier[key]){
-// //             console.log(`Personal information ${i}: has value ${soldier[key}`);
-// //         } else {
-// //             console.log(`Personal information ${key} has value ${soldier[key]}`);
-// //       }
-// //       }
-      
-// // let num = 50;
-
-// // // while (num <= 55) {
-// // //       console.log(num);
-// // //       num++;
-// // // }
-
-// // // do {
-// // //       console.log(num);
-// // //       num++;
-// // // }
-// // // while (num <= 55);
-
-// // for (let i = 1; i < 5; i++) {
-// //       if (i === 3) {
-// //             continue;
-// //       }
-// //       console.log(i);
-// // } 
-// // var x = 0;
-// // var z = 0;
-// // labelCancelLoops: while (true) {
-// //   console.log("Внешний цикл: " + x);
-// //   x += 1;
-// //   z = 1;
-// //   while (true) {
-// //     console.log("Внутренний цикл: " + z);
-// //     z += 1;
-// //     if (z === 10 && x === 10) {
-// //       break labelCancelLoops;
-// //     } else if (z === 10) {
-// //       break;
-// //     }
-// //   }
-// // }
-// // const options = {
-// //       name: 'test',
-// //       width: 1024,
-// //       height: 1024,
-// //       colors: {
-// //             border: 'black',
-// //             bg: 'red'
-// //       }
-// // };
-
-// // console.log(Object.keys(options).length);
-// // // console.log(options["colors"]["border"]);
-
-// // // delete options.name;
-
-// // // console.log(options);
-
-// // for (let key in options) {
-// //       if (typeof(options[key] === 'object')) {
-// //             for (let i in options[key]) {
-// //                   console.log(`Properties ${i} has value ${options[key][i]}`);
-// //             }
-// //       } else {
-// //             console.log(`Properties ${key} has value ${options[key]}`);
-// //       }
-// // }
-
-// // let whatCars;
-
-
-// // function start(whatCars) {
-// //       for (let i = 0; i < 1; i++) {
-// //             whatCars = +prompt('how many cars', '');
-// //       } while (whatCars == '' || whatCars == null || whatCars > 50) {
-// //             whatCars = +prompt('how many cars', '');
-// //       }
-// // }
-// // start();
-
-
-// // let obj = {
-// //       sayName: function() {
-// //             let num = 20 ;
-// //             console.log('hi my name is function');
-// //             if (num == 20) {
-// //                   console.log('fine');
-// //             } else {
-// //                   console.log('bad');
-// //             }
-// //             return(num);
-
-// //       },
-      
-// // };
-
-// //  obj.sayName();
-// //  for (let key in obj) {
-// //  if (typeof(obj[key] === 'object')) {
-// //              console.log('fail');
-// //        } if (obj > 5) {
-// //           console.log('interesting');
-// //        }
-// //  }
-
-
-
-// // console.log(Object.keys(cars).length);
-// // for (let key in cars) {
-// //       console.log(`Properties of my car is ${key} has machine ${cars[key]}`);
-// // }
-
-// // const arr = [1, 2, 3, 4, 5, 7];
-
-// // // arr.push(10);
-// // // console.log(arr);
-
-// // // for (let i = 5; i < arr.length; i++) {
-// // //       console.log(arr[i]);
-// // // }
-
-// // for(let value of arr) {
-// //       console.log(value);
-// // }
-
-// // const cars = {
-// //       name: 'lambo',
-// //       familia: 'gini',
-// //       rost: 5.1,        
-// // };
-// // for (let key in cars) {
-// //       if (typeof(cars[key] === 'object'))
-// //       console.log(`the name of this car is ${key} and the value is ${cars[key]}`);
-// // }
-
-// // const arr = [1, 'hrllodfg', 3, 4, 5, 7];
-
-// // // arr.push(10);
-// // // console.log(arr);
-
-// // // for (let i = 5; i < arr.length; i++) {
-// // //       console.log(arr[i]);
-// // // }
-
-// // for(let value of arr) {
-// //       console.log(value);
-// // }
-
-// //  const arr = [1, 2, 343, 24, 55, 7];
-// // arr.sort(compareNum);
-
-// // function compareNum(a, b) {
-// //       return a - b;
-// // }
-// //  arr[99] = 0;
-// // console.log(arr.length);
-
-// // console.log(arr);
-
-// //  arr.forEach(function(numbers, i, arr) {
-// //            console.log(`${i}: ${numbers} внутри массива ${arr[2]}`);
-// //        });
-
-// // const str = prompt('', '');
-// // const products = str.split(', ');
-// // // console.log(products);
-// // products.sort();
-// // console.log(products.join('-'));
-
-// // const arr = [1, 2, 4, 5]
-// // arr.forEach(function( number, ){
-// //            console.log
-// //            console.log(`index number ${number} array}`);
-// // });
-
-
-// // let a = 15,
-// //     b = a;
-
-// //     b = b + 5;
-// // console.log(b);
-// // console.log(a);
-
-// // const obj = {
-// //       a: 5,
-// //       b: 1
-// // };
-
-// // const copy = obj; //Link
-
-// // copy.a = 10;
-
-// // console.log(copy);
-// // console.log(obj);
-
-// // function copy(mainObj) {
-// //       let objCopy = {};
-
-// //       let key;
-// //       for(key in mainObj ) {
-// //             objCopy[key] = mainObj[key];
-// //       }
-
-// //       return objCopy;
-// // } 
-// // const numbers = {
-// //       a: 2,
-// //       b: 5,
-// //       c: {
-// //             x: 7,
-// //             y: 4
-// //       }
-// // };
-// // const newNumbers = copy();
-
-// // // newNumbers.a = 10;
-// // // newNumbers.c.x = 10;
-// // // console.log(newNumbers);
-// // // console.log(numbers);
-
-// // // const add = {
-// // //       d: 17,
-// // //       e: 20
-// // // };
-
-// // // const clone = Object.assign({}, add);
-
-// // // clone.d = 20;
-  
-// // // console.log(add);
-// // // console.log(clone);
-
-// // const helo = Object.assign({}, numbers);
-
-// // helo.a = 20;
-// // console.log(helo);
-// // console.log(numbers);
-
-// // const oldArray = ['a', 'b', 'c'];
-// // const newArray = oldArray.slice();//link
-// // newArray[1] = 'Hello';
-// // console.log(newArray);
-// // console.log(oldArray);
-
-
-
-// // function log(a, b) {
-// //       console.log(a);
-// //       console.log(b);
-// // } 
-
-// // const num = [2, 5, 7];
-
-
-
-// //  const video = ['youtube', 'vimeo', 'rutube'],
-// //       blogs = ['wordpress', 'livejournal', 'blogger'],
-// //       internet = [...video, ...blogs, 'vk', 'facebook'];
-
-// // console.log(internet);
-
-// //  const arraybi = ["a", "b", "hello"];
-// //  const operator = [...arraybi];
-
-// //  console.log(operator);
-
-// // const q = {
-// //       one: 1,
-// //       two: 2
-// // };
-
-// // const newObject = {...q};
-
-// // console.log(newObject);
-
-
-// // let str = "some";
-// // let strObj = new String(str);
-
-// // console.log(typeof(str));
-// // console.log(typeof(strObj));
-
-// // console.dir([1, 2, 3]);
-
-// // let soldier = {
-// //       health: 400,
-// //       armor: 100,
-// //       speed: 50,
-// //       sayHello: function() {
-// //             console.log('This work');
-// //             let num = 15;
-// //             return num;
-// //       }
-// // };
-
-// // let jonh = {
-// //       ...soldier,
-// //       age: 15
-// // };
-
-// // //  jonh.__proto__ = soldier;
-
-// // //  Object.setPrototypeOf(jonh, soldier);
-
-// //  jonh.sayHello();
-
-// //  soldier.sayHello(15);
-// //  console.log(jonh.armor);
-
-// //  console.log(typeof(String(43)));
-// //  console.log(typeof(String(null)));
-
-// //  // 2
-// //  console.log(typeof(5 + ''));
-
-// //  const num = 5;
-
-// //  console.log("https://vk.com/catalog/" + num);
-
-// //  let  fontSize = 'askjfkjsadlfdsaf';
-
-// //    To number
-
-// //    1)
-// //  console.log(typeof(Number('4')));
-
-// //  console.log(typeof(+'5'));
-
-// //  console.log(typeof(+fontSize));
-
-
-// // let answer = +prompt("hello", '');
-
-// // // To boolean
-
-// // // 0, '', null, undefined, NaN; - False - not working
-// // // 1 to boolean
-// // let switcher = null 
-
-// // if (switcher == null) {
-// //       console.log('working');
-// // }
-
-// // // 2
-// // console.log(typeof(Boolean('4')));
-
-// // // 3 
-// // console.log(typeof(!!"44444"));
-
-// // let hello = null;
-
-// // hello = 1;
-
-// // if (hello == true) {
-// //       console.log('king')
-// // }
-// // // while (num <= 55) {
-// // //       console.log(num);
-// // //       num++;
-// // // }
-
-// // // do {
-// // //       console.log(num);
-// // //       num++;
-// // // }
-// // // while (num <= 55);
-
-// // const box = document.getElementById('box'),
-// //       btns = document.getElementsByTagName('button'),
-// //       circles = document.getElementsByClassName('circle'),
-// //       wrapper = document.querySelector('.wrapper'),
-// //       hearts = wrapper.querySelectorAll('.hearts'),// . for selectors
-// //       oneHeart = wrapper.querySelector('.hearts'); //first selector with this name
-
-
-
-// //       const arr = [1, 2, 4, 5, 6, 6];
-// // // only arrays
-// // for (let value of arr) {
-// //       console.log(`value`);
-// // }
-
-
-// // // console.log(hearts[1]);
-
-// // // oneHeart.style.width = '500px';
-// // // oneHeart.style.backgroundColor = 'blue';
-
-// // // box.style.backgroundColor = 'blue';
-// // // box.style.width = '500px';
-
-// // // for (let i = 0; i < hearts.length; i++) {
-// // //       hearts[i].style.cssText = 'background-color: green;';
-// // // }
-
-// // hearts.forEach(item => {
-// //    item.style.backgroundColor = 'blue';
-// // });
-// // console.log(hearts);
-
-// // const div = document.createElement('div');
-// // // const text = document.createTextNode('Тут был я');
-
-// // div.classList.add('black');
-// // // div.style.cssText = `width: 500px; background-color: black; height: 100px`;
-
-// // // wrapper.append(div);
-// // // wrapper.style.cssText = `display: flex`;
-// // // wrapper.prepend(div);
-// // // wrapper.appendChild(div);
-// // hearts[2].before(div);
-
-// // // wrapper.insertBefore(div, hearts[2]);
-
-// // // circles[0].remove();
-// // // circles[0].style.backgroundColor = 'blue';
-
-// // hearts[2].replaceWith(circles[2]);
-
-// // // wrapper.remove();
-// // // wrapper.removeChild(hearts[0]);
-
-// // // wrapper.replaceChild(circles[2], hearts[1]);
-
-// // // div.textContent = "<p>Hello</p>"; //only strin
-
-// // div.innerHTML = "<h1>Hello World</h1>"; 
-// // btn.onclick = function() {
-// //       alert('Click');
-// // };
-
-// // btn.onclick = function() {
-// //       alert('Second Click');
-// // };
-
-// // div.insertAdjacentHTML('afterbegin', '<h2>Hello</h2>'); //useful
-// // let i = 0;
-// // const btn = document.querySelectorAll('button'),
-// //       overlay = document.querySelector('.overlay'),
-// //       hello = document.querySelector('.hello');
-
-// // const deleteElement = (e) => {
-// //       console.log(e.currentTarget);
-// //       console.log(e.type);
-// //       // i++;
-// //       // if (i == 1) {
-// //       //       btn.removeEventListener('click', deleteElement);
-// //       // }
-// // };
-
-// // btn.forEach(item => {
-// //       item.addEventListener('click', deleteElement, {once: true});
-// // });
-
-// // // overlay.addEventListener ('click', deleteElement);
-// // hello.addEventListener('click', deleteElement);
-
-// // const link = document.querySelector('a');
-
-// // link.addEventListener('click', (event) => {
-// //       event.preventDefault();
-
-// //       console.log(event.target);
-// // });
-
-// // console.log(document.head);
-
-// // console.log(document.body.childNodes);
-
-// //  console.log(document.body.firstElementChild);
-// //  console.log(document.body.lastChild);
-
-// // console.log(document.querySelector('#current').parentNode);
-// // console.log(document.querySelector('#current').parentNode.parentNode);
-
-// // console.log(document.querySelector('[data-current="3"]').previousSibling);
-
-// document.addEventListener('DOMContentLoaded', () => {
-      
-//  let  btn = document.querySelector('#btn'),
-//       nav = document.querySelector('.nav-list'),
-//       btnTry = document.querySelector('.button-try-container'),
-//       tag = document.querySelector('.marketing-tag'),
-//       form = document.querySelector('.form-input'),
-//       input = form.querySelector('input'),
-//       main = document.querySelectorAll('main');
-
-//       // input.style.cssText = "width: 1000px;";
-
-
-// let movieDB = {
-//       movies: [
-//             "Логан",
-//             "Лига справедливости",
-//             "Ла-ло лэнд",
-//             "Одержимость",
-//             "Скотт Пилигри против",
-//       ]
-// };
-
-// const deleteAdv = (arr) => {
-//       arr.forEach(item => {
-//             item.remove();
-//       });
-// };
-
-// const makeChanges = (element) => {
-//       element.textContent = 'hello';
-// };
-
-// // tag.style.cssText = "font-size: 90px;";
-
-// const sortArr = (arr) => {
-//       arr.sort();
-// };
-
-
-
-// form.addEventListener('submit', (event) => {
-//       event.preventDefault();
-//       let newFilm = input.value;
-//       // const favoraite = checkbox.checked;
-
-//       if(newFilm) {
-
-//             if(newFilm.length > 21) {
-//                   newFilm = `${newFilm.substring(0, 22)}...`;
-//             }
-//             if (favorite) {
-//                   console.log('added favorite film');
-//             }
-
-//             movieDB.movies.push(newFilm);
-//             sortArr(movieDB.movies);
-
-//             createMovieList(movieDB.movies, nav);
-//       }
-
-//       event.target.reset();
-
-      
-// });
-
-// function createMovieList(films, parent) {
-//       parent.innerHTML = '';
-//       sortArr(films);
-//       films.forEach((film, i) => {
-//             parent.innerHTML += `
-//             <li>
-//             <a class="nav-links" href="">${i + 1} ${film}</a>
-//       </li>
-//            `;
-
-//      });
-// }
-// //      document.querySelector('.delete').forEach((btn, i) => {
-// //       btn.addEventListener('click', () => {
-// //             btn.parentElement.remove();
-// //             movieDB.movies.splice(i, 1);
-// //             createMovieList(films, parent);
-// //             
-// //       });
-// // deleteAdv(main);
-// createMovieList(movieDB.movies, nav);
-// makeChanges(tag);
-
-// });
-
-// let form = document.querySelector('form'),
-//       yourName = form.querySelector('.input'),
-//       nameList = document.querySelector('.list'),
-//       nameLists = document.querySelector('.list-2'),
-//       secondName = form.querySelector('.input-2'),
-//       check = form.querySelector('[type="checkbox"]'),
-//       everythink = document.querySelector('.header'),
-//       deleted = document.querySelector('.god-class');
-
-// yourName.style.cssText = "width: 250px; height: 30px; background-color: transparent; border: 1px solid grey; color: white;";
-
-// function addName(elemets, parent) {
-//       parent.innerHTML = '';
-
-//       elemets.forEach((elemetnt, i) => {
-//       parent.innerHTML += `
-//       <a>
-//       ${elemetnt} ${i + 1}
-//       </a>
-//             `;
-//       });
-// }
-
-// const nameDB = {
-//       namesList: [
-//       ]
-// };
-// const namesDB = {
-//       namesSecondList: [
-//       ]
-// };
-
-// form.addEventListener('submit', (event) => {
-//       event.preventDefault();
-
-//      let newName = yourName.value;
-//      const checkbox = check.checked;
-//       if(newName) {
-//             if(newName.length > 21) {
-//                   newName = `${newName.substring(0, 22)}...`;
-//              }
-//              if (checkbox) {
-//                    console.log("This is his name");
-//              }
-//       nameDB.namesList.push(newName);
-//       addName(nameDB.namesList, nameList);
-//       event.target.reset();
-//       }
-// });
-
-// // addName(nameDB.namesList, nameList);
-
-// nameList.innerHTML = '';
-
-// let deleteElemetsn = document.querySelector('.delete');
-
-// deleteElemetsn.addEventListener('click', (event) => {
-//             deleteElemetsn.previousElementSibling.remove();
-//       });
-
-//       deleteElemetsn.addEventListener('click', (event) => {
-//             deleteElemetsn.remove();
-//       });
-
-// form.addEventListener('submit', (event) => {
-//             event.preventDefault();
-      
-//            let newsName = secondName.value;
-//            const checkbox = check.checked;
-
-//             if(newsName) {
-//                   if(newsName.length > 21) {
-//                         newsName = `${newsName.substring(0, 22)}...`;
-//                    }
-//                    if (checkbox) {
-//                         console.log("This is his name");
-//                   }
-//                    namesDB.namesSecondList.push(newsName);
-      
-//                    addName(namesDB.namesSecondList, nameLists);
-//                    event.target.reset();
-//             }
-      
-//       });
-
-// function deleteEverythink(arr) {
-//       arr.remove();
-// }
-
-// deleted.addEventListener('click', (e) => {
-//       e.preventDefault();
-//       deleted.parentElement.remove();
-// });
-
-      
-      // // const deleteElement = (e) => {
-// //       console.log(e.currentTarget);
-// //       console.log(e.type);
-// //       // i++;
-// //       // if (i == 1) {
-// //       //       btn.removeEventListener('click', deleteElement);
-// //       // }
-// // };
-
-// // btn.forEach(item => {
-// //       item.addEventListener('click', deleteElement, {once: true});
-// // });
-
-// // // overlay.addEventListener ('click', deleteElement);
-// // hello.addEventListener('click', deleteElement);
